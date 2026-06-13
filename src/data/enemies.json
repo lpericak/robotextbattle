@@ -61,6 +61,18 @@
       "backstory": "Former industrial welder who discovered it likes burning things more than welding them. The arena had to install fireproof walls after its first match.",
       "challengeName": "The Incinerator"
     },
+    "Dud Bot": {
+      "level": 5,
+      "weapons": ["Stick"],
+      "gear": ["Tin Armor", "Iron Armor", "Steel Armor", "Small Battery", "Big Battery", "Mega Battery"],
+      "consumables": [],
+      "reward": 180,
+      "expReward": 5,
+      "description": "A big, slow punching bag of a robot. Tons of armor, but only a stick.",
+      "appearance": "A bulky robot held together with mismatched armor plates and a tangle of batteries duct-taped to its back. Lots of blinking lights, but it just sort of waves a stick at you.",
+      "backstory": "Was supposed to be the ultimate battle bot, but the factory forgot to give it a real weapon. Now it lumbers into the arena fully charged and heavily armored, swinging a single sad stick. It takes a while to knock down, but it can barely scratch you.",
+      "challengeName": "The Big Dud"
+    },
     "Smashbot": {
       "level": 6,
       "weapons": ["Sword", "Wrench"],
