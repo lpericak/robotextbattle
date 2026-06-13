@@ -5,6 +5,10 @@ buy weapons and gear from the shop, then battle increasingly tough enemies to
 earn money and level up. Terminal style — green text on black — and it works on
 desktop and phones.
 
+> This is a standalone copy of the `robot-battle` game from Kyle's `multi`
+> monorepo, extracted so it can be worked on by itself. Play the original
+> hosted version here: **[kyle.pericak.com/games/robot-battle](https://kyle.pericak.com/games/robot-battle/index.html)**
+
 ## Play it locally
 
 You need [Node.js](https://nodejs.org/) installed. Then:
