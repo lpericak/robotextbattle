@@ -14,7 +14,21 @@ npm install        # one time, installs the tools the game needs
 npm run dev        # starts the game
 ```
 
-Open the link it prints (http://127.0.0.1:5173/) in your browser.
+## How to open the game
+
+The game lives at **http://localhost:5173/** — bookmark that link in your
+browser to jump straight to it.
+
+**The catch:** that link only works while the game is *running*. The game runs
+when `npm run dev` is going (or when you ask Claude to **"Play"**, which starts
+it for you). So the routine is:
+
+1. Ask Claude to **"Play"** (or run `npm run dev` yourself). This starts the
+   game server.
+2. Open the bookmark — **http://localhost:5173/** — and play.
+
+If you click the bookmark and the page says it *can't connect*, the game just
+isn't running yet. Ask Claude to "Play" and try the bookmark again.
 
 ## Making changes
 
