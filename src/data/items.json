@@ -55,6 +55,16 @@
       "requirements": ["Shotgun Shell"],
       "description": "A small gauge shotgun. BOOM!"
     },
+    "Bow": {
+      "level": 7,
+      "damage": 9,
+      "moneyCost": 400,
+      "energyCost": 1,
+      "accuracy": 90,
+      "hands": 2,
+      "requirements": ["Arrow"],
+      "description": "Draw, aim, loose! Fires an Arrow each shot. Needs two hands and barely any power."
+    },
     "Laser Gun": {
       "level": 8,
       "damage": 20,
@@ -174,6 +184,14 @@
       "maxStack": 60,
       "category": "Ammo",
       "description": "Ammo for the Sawed-off Shotgun. Consumed when fired. Max 60."
+    },
+    "Arrow": {
+      "level": 7,
+      "moneyCost": 10,
+      "stackable": true,
+      "maxStack": 60,
+      "category": "Ammo",
+      "description": "Ammo for the Bow. Consumed when fired. Max 60."
     },
     "Missile": {
       "level": 30,
