@@ -1,0 +1,523 @@
+/* === Robot Battle v0.5.0 — Retro Point-and-Click UI === */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0a0a0a;
+  color: #33ff33;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+  line-height: 1.4;
+  min-height: 100vh;
+}
+
+#terminal {
+  min-height: 100vh;
+  padding: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow-y: auto;
+}
+
+.terminal-output {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding-bottom: 8px;
+}
+
+/* === Color classes === */
+.t-blue { color: #4488ff; }
+.t-red { color: #ff4444; }
+.t-green { color: #33ff33; }
+.t-yellow { color: #ffff33; }
+.t-cyan { color: #33ffff; }
+.t-magenta { color: #ff33ff; }
+.t-purple { color: #bb55ff; }
+.t-bold { font-weight: bold; }
+.t-dim { opacity: 0.6; }
+
+/* === Panels — bordered containers === */
+.panel {
+  border: 1px solid #33ff33;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 4px 0;
+  white-space: normal;
+}
+
+.panel-header {
+  border: 1px solid #33ff33;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 4px 0;
+  background: #0d1a0d;
+  white-space: normal;
+}
+
+/* === Tab bar — horizontal navigation tabs === */
+.tab-bar {
+  display: flex;
+  gap: 0;
+  margin: 8px 0 0 0;
+}
+
+.tab {
+  padding: 8px 20px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  color: #33ff33;
+  border: 1px solid #1a5a1a;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  background: transparent;
+  opacity: 0.6;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.tab:hover {
+  opacity: 1;
+  background: #0d1a0d;
+}
+
+.tab.selected {
+  opacity: 1;
+  background: #1a3a1a;
+}
+
+.tab-active {
+  opacity: 1;
+  background: #1a3a1a;
+  border-color: #33ff33;
+  font-weight: bold;
+}
+
+.tab-back {
+  margin-left: auto;
+  color: #ffff33;
+  border-color: #ffff3366;
+}
+
+/* When filter tab is present, it takes the auto margin; Back sits next to it */
+.tab-filter ~ .tab-back {
+  margin-left: 0;
+}
+
+.tab-back:hover {
+  background: #3a3a0d;
+}
+
+.tab-filter {
+  margin-left: auto;
+  color: #999;
+  border-color: #66666666;
+  font-size: 13px;
+}
+
+.tab-filter:hover {
+  background: #1a1a1a;
+  color: #ccc;
+}
+
+.tab-filter.tab-active {
+  color: #ccc;
+  border-color: #999;
+  background: #1a1a1a;
+}
+
+/* === Cards — clickable bordered items === */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.card {
+  border: 1px solid #1a5a1a;
+  border-radius: 4px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  position: relative;
+}
+
+.card-header {
+  grid-column: 1 / -1;
+  border: none;
+  padding: 8px 4px 2px;
+  color: #ffff33;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.card-header:hover {
+  opacity: 0.8;
+}
+
+.card:hover {
+  border-color: #33ff33;
+  background: #0d1a0d;
+}
+
+.card.selected {
+  border-color: #33ff33;
+  background: #1a3a1a;
+}
+
+.card.disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.card.disabled:hover {
+  border-color: #1a5a1a;
+  background: transparent;
+}
+
+.card-back {
+  border-color: #ffff33;
+  color: #ffff33;
+}
+
+.card-back .card-title {
+  color: #ffff33;
+}
+
+.card-back .card-subtitle {
+  color: #ffff3399;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-subtitle {
+  opacity: 0.6;
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.card-badge {
+  position: absolute;
+  bottom: 6px;
+  right: 10px;
+  font-size: 20px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.card-badge.badge-cleared {
+  color: #ffffff;
+}
+
+.card-badge.badge-challenge {
+  color: #ffff33;
+}
+
+/* === Button row — horizontal action buttons === */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.btn {
+  border: 1px solid #33ff33;
+  border-radius: 4px;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  color: #33ff33;
+  background: transparent;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn:hover {
+  background: #1a3a1a;
+}
+
+.btn.selected {
+  background: #1a3a1a;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background: #1a3a1a;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background: #33ff33;
+  color: #0a0a0a;
+}
+
+.btn-secondary {
+  border-color: #ffff33;
+  color: #ffff33;
+}
+
+.btn-secondary:hover {
+  background: #3a3a0d;
+}
+
+.btn-challenge {
+  border-color: #bb55ff;
+  color: #bb55ff;
+}
+
+.btn-challenge:hover {
+  background: #2a1a3a;
+}
+
+/* === Battle layout — two-panel side by side === */
+.battle-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+/* === Text input (name entry) === */
+.terminal-input-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.terminal-input-line .terminal-prompt {
+  width: 100%;
+}
+
+.terminal-prompt {
+  color: #33ff33;
+  flex-shrink: 0;
+}
+
+.terminal-input {
+  background: transparent;
+  border: 1px solid #33ff33;
+  border-radius: 4px;
+  outline: none;
+  color: #33ff33;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 6px 10px;
+  flex: 1;
+  caret-color: #33ff33;
+}
+
+.terminal-input:focus {
+  border-color: #66ff66;
+  box-shadow: 0 0 4px #33ff3344;
+}
+
+.terminal-input::placeholder {
+  color: #1a5a1a;
+}
+
+/* === Inline choice list (still used for some screens) === */
+.terminal-choice-list {
+  margin: 4px 0;
+}
+
+.terminal-choice-item {
+  padding: 2px 8px;
+  cursor: pointer;
+  border-radius: 2px;
+  white-space: pre-wrap;
+}
+
+.terminal-choice-item.selected {
+  background: #1a3a1a;
+}
+
+.terminal-choice-item:hover {
+  background: #1a3a1a;
+}
+
+.terminal-choice-back {
+  border: 1px solid #ffff33;
+  color: #ffff33;
+  display: inline-block;
+  padding: 4px 16px;
+  margin: 4px 0;
+  border-radius: 4px;
+}
+
+/* === Continue button === */
+.terminal-continue {
+  display: inline-block;
+  padding: 6px 16px;
+  border: 1px solid #33ff33;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.terminal-continue:hover {
+  background: #33ff33;
+  color: #0a0a0a;
+}
+
+/* === Modal overlay === */
+.terminal-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.terminal-modal {
+  background: #0a0a0a;
+  border: 2px solid #33ff33;
+  border-radius: 8px;
+  padding: 24px 32px;
+  min-width: 300px;
+  text-align: center;
+}
+
+.terminal-modal-message {
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.terminal-modal-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.terminal-modal-btn {
+  padding: 8px 24px;
+  border: 1px solid #33ff33;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.terminal-modal-btn.selected {
+  background: #1a3a1a;
+  font-weight: bold;
+}
+
+.terminal-modal-btn:hover {
+  background: #33ff33;
+  color: #0a0a0a;
+}
+
+/* === Combat animations === */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+}
+
+@keyframes flash {
+  0% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0.3; }
+}
+
+@keyframes pulse {
+  0%, 100% { border-color: #33ff33; }
+  50% { border-color: #88ffaa; box-shadow: 0 0 8px #33ff3366; }
+}
+
+.anim-shake { animation: shake 0.2s ease-in-out; }
+.anim-flash { animation: flash 0.15s ease-out; }
+.anim-fadeout { animation: fadeOut 0.5s ease-out forwards; }
+.anim-pulse { animation: pulse 0.5s ease-in-out 2; }
+
+/* === Tooltips — CSS-only via data-tooltip === */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0a0a0a;
+  border: 1px solid #33ff33;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 13px;
+  white-space: nowrap;
+  z-index: 50;
+  pointer-events: none;
+  color: #33ff33;
+  margin-bottom: 4px;
+}
+
+
+/* === Title centering === */
+.title-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+  text-align: center;
+}
+
+/* === Input line submit button === */
+.terminal-input-line .btn {
+  flex-shrink: 0;
+}
+
+/* === Back card spans full grid width === */
+.card.card-back {
+  grid-column: 1 / -1;
+}
+
+/* === Mobile responsive === */
+@media (max-width: 500px) {
+  .battle-layout {
+    grid-template-columns: 1fr;
+  }
+
+  #terminal {
+    padding: 8px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .tab {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .panel {
+    padding: 6px 8px;
+  }
+}
