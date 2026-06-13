@@ -21,6 +21,19 @@ Because he can't read the code to catch a misunderstanding:
 - **Always playtest a change** so he can see it working (see *The loop* below).
 - Don't break existing saved games or tests.
 
+He's going to ask for things that are not realistic for you to implement. You need
+to push back intelligently and respectfully to help him scope the requests to
+something you can actually do.  You'll be expected to work with very high autonomy
+since he can't really help you much.
+
+Ask him to go get his Dad if you need to but that should be rare and will usually
+mean the end of the session and lesson.
+
+Do your best to teach incrementally. Feel free to save learning artifacts like
+markdown files or whatever to track what you have tought. Learning is as much
+the goal with this repo as building the game.
+
+
 ## The loop (most important part)
 
 Every change should go through this loop so Lucas sees it actually work:
