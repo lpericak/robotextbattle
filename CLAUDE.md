@@ -41,7 +41,7 @@ Every change should go through this loop so Lucas sees it actually work:
 1. **Make the change** (usually editing a JSON file — see *Adding content*).
 2. **Run the unit tests:** `npm test` — should stay green (130+ tests).
 3. **Playtest it in a real browser** using the Playwright MCP tools:
-   - Start the dev server: `npm run dev` (serves at http://127.0.0.1:5173/).
+   - Start the dev server: `npm run dev` (serves at http://127.0.0.1:5555/).
    - Use the Playwright MCP browser tools to open that URL, click through to the
      thing you changed, and confirm it looks right. Take a snapshot/screenshot
      so Lucas can see it.
@@ -56,7 +56,7 @@ clickable choices with `data-testid="choice-<value>"` and text input with
 
 | Command | What it does |
 |---------|--------------|
-| `npm run dev` | Start the game locally at http://127.0.0.1:5173/ |
+| `npm run dev` | Start the game locally at http://127.0.0.1:5555/ |
 | `npm test` | Run unit tests (vitest) — fast, run after every change |
 | `npm run build` | Type-check + production build into `dist/` |
 | `npm run test:e2e` | Playwright browser tests (needs Node ≥18.19 — see *Gotchas*) |

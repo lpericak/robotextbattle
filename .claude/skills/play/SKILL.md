@@ -11,10 +11,10 @@ game in the browser using the Playwright MCP tools.
 
 ## Steps
 
-1. **Check if the dev server is already running** on port 5173:
+1. **Check if the dev server is already running** on port 5555:
 
    ```bash
-   curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:5173/
+   curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:5555/
    ```
 
    - `200` → it's already running, skip to step 3.
@@ -28,11 +28,11 @@ game in the browser using the Playwright MCP tools.
    ```
 
    Run it as a background process, then wait ~2-3 seconds and re-check with the
-   curl above until you get `200`. The game serves at http://127.0.0.1:5173/.
+   curl above until you get `200`. The game serves at http://127.0.0.1:5555/.
 
 3. **Open the game in the browser with the Playwright MCP tools.** Use the
    `mcp__playwright__*` tools (configured in `.mcp.json`):
-   - `browser_navigate` → http://127.0.0.1:5173/
+   - `browser_navigate` → http://127.0.0.1:5555/
    - `browser_snapshot` (and/or `browser_take_screenshot`) so the user can see
      the game. Show them the title screen.
 

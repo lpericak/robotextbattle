@@ -11,10 +11,10 @@ exact address to hand to whoever is connecting.
 
 ## Steps
 
-1. **Check if the dev server is already running** on port 5173:
+1. **Check if the dev server is already running** on port 5555:
 
    ```bash
-   curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:5173/
+   curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:5555/
    ```
 
    - `200` → already running, skip to step 3.
@@ -30,14 +30,14 @@ exact address to hand to whoever is connecting.
 
    ```
      ➜  Other machines on this network connect to:
-        http://192.168.2.21:5173/  (via en0)
+        http://192.168.2.21:5555/  (via en0)
    ```
 
 3. **Get the connect address** to hand out. The server already printed it, but
    you can also compute it directly without restarting:
 
    ```bash
-   node scripts/lan-address.mjs 5173
+   node scripts/lan-address.mjs 5555
    ```
 
    This picks the network card that owns the **default route** (the one with the
@@ -46,15 +46,15 @@ exact address to hand to whoever is connecting.
    from this command.
 
 4. **Tell the user the address in plain words**, e.g.:
-   "Tell Oliver to open **http://192.168.2.21:5173/** in his browser. You both
+   "Tell Oliver to open **http://192.168.2.21:5555/** in his browser. You both
    need to be on the same Wi-Fi."
 
 ## Notes
 
 - **Port 80?** We'd use `http://<ip>/` (port 80) if we could, but binding to
-  port 80 needs admin/root rights that `npm run dev` doesn't have. So we use the
-  usual Vite port **5173** and spell out the full `IP:port`. (To change the
-  port, edit `DEV_PORT` in `vite.config.ts`.)
+  port 80 needs admin/root rights that `npm run dev` doesn't have. So we use
+  **5555** — an easy-to-remember port for the kids — and spell out the full
+  `IP:port`. (To change the port, edit `DEV_PORT` in `vite.config.ts`.)
 - **Same network required.** The other machine must be on the same LAN/Wi-Fi.
   If they can't connect, the usual culprits are: different Wi-Fi networks, a
   "guest" network that isolates devices, or a macOS firewall prompt — accept the

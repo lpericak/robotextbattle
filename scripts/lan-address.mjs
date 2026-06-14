@@ -63,7 +63,7 @@ export function getLanIp() {
 
 // Run directly: print a single connect URL (used by tooling / the skill).
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const port = process.argv[2] ?? "5173";
+  const port = process.argv[2] ?? "5555";
   const { ip } = getLanIp();
   if (ip) console.log(`http://${ip}:${port}/`);
   else process.exit(1);

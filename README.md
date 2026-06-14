@@ -20,7 +20,7 @@ npm run dev        # starts the game
 
 ## How to open the game
 
-The game lives at **http://localhost:5173/** — bookmark that link in your
+The game lives at **http://localhost:5555/** — bookmark that link in your
 browser to jump straight to it.
 
 **The catch:** that link only works while the game is *running*. The game runs
@@ -29,7 +29,7 @@ it for you). So the routine is:
 
 1. Ask Claude to **"Play"** (or run `npm run dev` yourself). This starts the
    game server.
-2. Open the bookmark — **http://localhost:5173/** — and play.
+2. Open the bookmark — **http://localhost:5555/** — and play.
 
 If you click the bookmark and the page says it *can't connect*, the game just
 isn't running yet. Ask Claude to "Play" and try the bookmark again.

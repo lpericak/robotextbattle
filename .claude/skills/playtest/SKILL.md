@@ -16,10 +16,10 @@ just assert that it should. This is the verification half of every change.
      type errors.
 
 2. **Start the dev server:** `npm run dev`. It serves at
-   http://127.0.0.1:5173/. (Run it in the background so you can keep working.)
+   http://127.0.0.1:5555/. (Run it in the background so you can keep working.)
 
 3. **Drive the browser with the Playwright MCP tools** (configured in
-   `.mcp.json`). Navigate to http://127.0.0.1:5173/ and click through to whatever
+   `.mcp.json`). Navigate to http://127.0.0.1:5555/ and click through to whatever
    you changed. Useful facts about the UI:
    - The game is a "terminal" — choices are clickable elements with
      `data-testid="choice-<value>"`.

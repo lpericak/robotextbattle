@@ -5,9 +5,9 @@ import { getLanIp } from "./scripts/lan-address.mjs";
 // 0.0.0.0 (all interfaces) so phones/laptops on the same Wi-Fi can connect.
 //
 // Port note: we'd use :80 if we could, but binding to port 80 needs admin
-// (root) rights, which `npm run dev` doesn't have. So we use the usual Vite
-// port and spell out the full address below.
-const DEV_PORT = 5173;
+// (root) rights, which `npm run dev` doesn't have. So we use an easy-to-remember
+// port for the kids and spell out the full address below.
+const DEV_PORT = 5555;
 
 // Prints a clear "other machines connect here" line every time the dev server
 // starts, using the NIC that owns the default route (not a hardcoded one).
