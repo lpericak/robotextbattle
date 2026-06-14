@@ -487,6 +487,12 @@ function esc(s: string): string {
 
 const CHANGELOG: { version: string; date: string; notes: string[] }[] = [
   {
+    version: "0.13.1", date: "2026-06-14", notes: [
+      "New weapon: the Bow — fires Arrows (buy Arrows first to unlock it)",
+      "New enemy: Dud Bot — a big armored punching bag with only a stick",
+    ],
+  },
+  {
     version: "0.13.0", date: "2026-04-10", notes: [
       "Level scaling: every level grants +1 Accuracy, +1 Dodge, +1 Defence, +1 Attack, +2 HP",
       "New Game + bonus: +1 to every level bonus (incl. HP) per NG+ round — applies to enemies too",

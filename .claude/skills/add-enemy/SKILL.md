@@ -56,9 +56,11 @@ Enemies are defined entirely in `src/data/enemies.json`. No code changes needed.
 6. **Tell the user in plain words** what you added and that it showed up in the
    Fight menu.
 
+7. **Bump the version.** A new enemy is a change to the game itself, so invoke
+   the `bump-version` skill (a patch bump) to update the version and patch notes
+   automatically — don't wait to be asked.
+
 ## Notes
 
 - Balance: a brand-new enemy that's way stronger or weaker than its level
   suggests will feel unfair. Mirror the stats of existing enemies at that level.
-- If this is a meaningful addition, consider a version bump with the `release`
-  skill.

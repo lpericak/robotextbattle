@@ -83,5 +83,8 @@ the closest existing consumable for the exact field names.
    to open the game, enter the Shop, and confirm the item appears (at the right
    level) and can be bought. Screenshot it for the user.
 6. Explain in plain words what you added and where it shows up.
+7. **Bump the version.** A new item is a change to the game itself, so invoke
+   the `bump-version` skill (a patch bump) to update the version and patch notes
+   automatically — don't wait to be asked.
 
 If a new weapon needs ammo, add both the weapon and its ammo gear.
