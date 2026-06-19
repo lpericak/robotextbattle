@@ -57,7 +57,7 @@
     },
     "Bow": {
       "level": 7,
-      "damage": 9,
+      "damage": 90000,
       "moneyCost": 400,
       "energyCost": 1,
       "accuracy": 90,

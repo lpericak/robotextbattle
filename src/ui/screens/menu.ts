@@ -487,6 +487,11 @@ function esc(s: string): string {
 
 const CHANGELOG: { version: string; date: string; notes: string[] }[] = [
   {
+    version: "0.13.2", date: "2026-06-14", notes: [
+      "The Bow now hits for a MASSIVE 90,000 damage — one shot, one robot!",
+    ],
+  },
+  {
     version: "0.13.1", date: "2026-06-14", notes: [
       "New weapon: the Bow — fires Arrows (buy Arrows first to unlock it)",
       "New enemy: Dud Bot — a big armored punching bag with only a stick",
